@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page with Navbar and Sidebar</title>
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        body::-webkit-scrollbar {
+            display: none; /* Menyembunyikan scrollbar */
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        header {
+            background-color: #596249;
+            color: white;
+            padding: 5px;
+        }
+
+        .header3 {
+            background-color: #69747d;
+            color: white;
+            padding: 5px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px; /* Sesuaikan dengan tinggi header Anda */
+            padding: 0 20px; /* Sesuaikan dengan padding yang diinginkan */
+        }
+
+        .left-icon, .right-icon {
+            width: 30px; /* Sesuaikan ukuran ikon */
+            height: 30px;
+            cursor: pointer; /* Pointer ketika ikon dihover */
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between; /* Membuat isi header (hamburger dan akun) berada di sisi kanan dan kiri */
+            align-items: center; /* Memusatkan vertikal konten header */
+            padding: 10px 20px; /* Padding untuk ruang di sekitar konten header */
+        }
+
+        .account-icon {
+            cursor: pointer; /* Kursor menjadi pointer ketika diarahkan */
+        }
+
+        .center-text {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fefeff;
+            color: #596249;
+        }
+
+        .navbar2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Mengubah dari 'center' ke 'space-between' */
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar2 div {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar2 nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar2 nav ul li {
+            margin-right: 20px; /* Jarak antar tombol */
+        }
+
+        .navbar2 nav ul li a {
+            text-decoration: none;
+            color: #596249;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar2 nav ul li a:hover {
+            color: #000; /* Warna teks saat dihover */
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar2 nav {
+                flex-direction: column;
+            }
+
+            .navbar2 ul {
+                flex-direction: column;
+            }
+
+            .navbar2 ul li {
+                text-align: center;
+                padding: 10px;
+            }
+
+            .navbar2 ul li a {
+                font-size: 20px;
+            }
+
+            .navbar2 ul li {
+                display: block;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .navbar2 ul li:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .navbar2 nav {
+                flex-direction: column;
+            }
+
+            .navbar2 ul {
+                flex-direction: column;
+                padding: 0; /* Adjust padding if necessary */
+            }
+
+            .navbar2 ul li {
+                text-align: center;
+                padding: 8px; /* Adjust padding for smaller screens */
+            }
+
+            .navbar2 ul li a {
+                font-size: 18px; /* Adjust font size for smaller screens */
+            }
+
+            .navbar2 ul li {
+                display: block;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .navbar2 ul li:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .sidebar {
+            background-color: #f1f1f1;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            min-width: 300px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .sidebar__content {
+            padding: 8px;
+        }
+
+        .sidebar[aria-hidden="true"] {
+            transition: 200ms;
+            transform: translateX(100%);
+        }
+
+        .sidebar:not([aria-hidden]),
+        .sidebar[aria-hidden="false"] {
+            transition: 200ms;
+            transform: translateX(0);
+        }
+
+        .hero {
+            position: relative; /* Ensure relative positioning for absolute positioning of buttons */
+            background-image: url('/assets/img/kota/bali/dance1.jpg');
+            height: 600px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            /* Set a specific height */
+            min-height: 500px; 
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .heroA {
+            position: relative; /* Ensure relative positioning for absolute positioning of buttons */
+            background-image: url('/assets/img/kota/jogja/parangtritis1.jpg');
+            height: 200px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            /* Set a specific height */
+            min-height: 500px; 
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .heroB {
+            position: relative; /* Ensure relative positioning for absolute positioning of buttons */
+            background-image: url('/assets/img/kota/bali/bali3.jpg');
+            height: 200px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            /* Set a specific height */
+            min-height: 500px; 
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .heroC {
+            position: relative; /* Ensure relative positioning for absolute positioning of buttons */
+            background-image: url('/assets/img/kota/banten/sawarna.jpg');
+            height: 200px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            /* Set a specific height */
+            min-height: 500px; 
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .hero1 {
+            position: relative; /* Ensure relative positioning for absolute positioning of buttons */
+            background-image: url('/assets/img/kota/bandung/bandung.jpg');
+            height: 150px;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero1 h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero1 p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Style for previous and next image buttons */
+        #prevImageBtn {
+            left: 20px; /* Adjust for left position */
+        }
+
+        #nextImageBtn {
+            right: 20px; /* Adjust for right position */
+        }
+
+        .btn-secondary {
+            position: absolute;
+            top: 50%; /* Adjust as needed */
+            transform: translateY(-50%);
+            background-color: transparent;
+            color: #333;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10; /* Ensure buttons are above background */
+        }
+
+        .btn-primary {
+            /* background-color: #fff; */
+            color: #596249;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #596249;
+            color: #fff;
+        }
+
+        .container2 {
+            text-align: center; /* Agar konten berada di tengah */
+            padding: 50px; /* Tambahkan padding jika perlu */
+        }
+
+        .btn-primary2 {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #69747d; /* Warna latar belakang tombol */
+            color: white; /* Warna teks tombol */
+            padding: 10px 20px; /* Padding dalam tombol */
+            border-radius: 5px; /* Membuat sudut tombol membulat */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Animasi transisi */
+        }
+
+        .btn-primary2 h1 {
+            margin: 0; /* Menghapus margin dari h1 dalam tombol */
+            font-size: 24px; /* Ukuran font h1 */
+        }
+
+        .btn-primary2:hover {
+            background-color: #0056b3; /* Warna latar belakang saat di-hover */
+            transform: scale(1.05); /* Memperbesar tombol sedikit saat di-hover */
+        }
+
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-icon h2 {
+            margin: 0 10px;
+        }
+
+        .marquee {
+            color: rgb(255, 255, 255);
+            letter-spacing: 2px;
+            font-weight: 700;
+            padding: 30px;
+            font-size: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .svg svg {
+                display: none;
+            }
+        }
+
+        .reservasi-container {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+.reservasi-item {
+    min-width: 250px;
+    margin: 1rem;
+}
+
+.reservasi1 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    height: 300px; /* Set a larger fixed height for the container */
+}
+
+.reservasi1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.reservasi1 div:first-of-type {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.reservasi1:hover .popup {
+    opacity: 1;
+}
+
+     /* Kontak Section */
+     #kontak {
+            padding: 2rem;
+            background-color: #f0f0f0;
+        }
+
+        #kontak .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #kontak h2 {
+            margin-bottom: 1rem;
+        }
+
+        #kontak p {
+            margin-bottom: 2rem;
+        }
+
+        #kontak form {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #kontak form input[type="text"],
+        #kontak form input[type="email"],
+        #kontak form textarea {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #kontak form textarea {
+            width: 100%;
+            resize: vertical;
+        }
+
+        #kontak form button {
+            padding: 10px 20px;
+            background-color: #596249;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #kontak form button:hover {
+            background-color: #445038;
+        }
+
+        @media (max-width: 768px) {
+        #reservasi {
+            display: none;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+
+        <marquee class="marquee" behavior="scroll" direction="left">
+            MUST YOU HOLIDAY IF YOU HAVE CHANGE TIME OF VACATION | MUST YOU HOLIDAY IF YOU HAVE CHANGE TIME OF VACATION | MUST YOU HOLIDAY IF YOU HAVE CHANGE TIME OF VACATION
+        </marquee>
+        
+
+</header>
+
+<header class="header2">
+    <div class="navbar2">
+        <nav>
+            <ul style="font-size: 30px;">
+             
+                <li><a href="#beranda">BERANDA</a></li>
+                <!-- <li>|</li> -->
+                <li><a href="reservasi.html">RESERVASI</a></li>
+                <!-- <li>|</li> -->
+                <li><a href="dokumentasi.html">GALLERY</a></li>
+                <!-- <li>|</li> -->
+                <li><a href="#kontak">KONTAK</a></li>
+       
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<header class="header3">
+    <div class="header-content">
+        <!-- Hamburger menu -->
+        <div class="hamburger" data-toggle-sidebar="sidebar1" aria-label="Toggle Sidebar">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="arrow-icon">
+            <div class="svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 5L9 12L16 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 5L9 12L16 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 5L9 12L16 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2 style="font-size: 40px; text-align: center;" >NATA KUSUMA TOUR</h2>
+            <div class="svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5L15 12L8 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5L15 12L8 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5L15 12L8 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div> 
+        <!-- Icon akun -->
+        <div class="account-icon">
+            <img src="/assets/img/navbar_account/account-settings-svgrepo-com (4).svg" alt="Account Icon">
+        </div>
+    </div>
+</header>
+
+
+<div id="sidebar1" class="sidebar" aria-label="Main sidebar containing navigation links and some information" style="background-color: white; display: flex; justify-content: center; align-items: center; height: 100vh;" aria-hidden="true">
+    <div class="sidebar__content" style="text-align: center;">
+        <img src="/assets/img/sidebar_button/holiday-island-tourism-svgrepo-com.svg" alt="Vacation Image" style="width: 100px; height: auto; margin-bottom: 20px;">
+        <button onclick="location.href='#reservasi'" style="padding: 10px 20px; background-color: #596249; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 200px; max-width: 100%;">
+           WISATA
+        </button>
+        <br>
+        <img src="/assets/img/sidebar_button/holiday-map-tourism-svgrepo-com.svg" alt="Vacation Image" style="width: 100px; height: auto; margin-bottom: 20px;">
+        <button onclick="location.href='your-vacation-link.html'" style="padding: 10px 20px; background-color: #596249; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 200px; max-width: 100%;">
+           PERJALANAN
+        </button>
+        <br>
+        <img src="/assets/img/sidebar_button/holiday-ship-tourism-2-svgrepo-com.svg" alt="Vacation Image" style="width: 100px; height: auto; margin-bottom: 20px;">
+        <button onclick="location.href='your-vacation-link.html'" style="padding: 10px 20px; background-color: #596249; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 200px; max-width: 100%;">
+           PERLAYARAN
+        </button>
+        <br>
+        <img src="/assets/img/sidebar_button/holiday-tourism-travel-svgrepo-com.svg" alt="Vacation Image" style="width: 100px; height: auto; margin-bottom: 20px;">
+        <button onclick="location.href='your-vacation-link.html'" style="padding: 10px 20px; background-color: #596249; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; width: 200px; max-width: 100%;">
+           PENGINAPAN
+        </button>
+    </div>
+</div>
+
+
+<main>
+    <section id="beranda">
+        <div class="container">
+            <div class="hero">
+             <button id="prevImageBtn" class="btn-secondary">
+                 <img src="/assets/img/button/button-circle-previous-svgrepo-com (1).svg" alt="" style="width: 50px; height: 50px;">
+              </button>         
+               <h1 style="margin-top: -12px;">Holiday, speed your time in Paradise!</h1>
+               <p>Enjoy your holidays</p>
+               <!-- <a href="/products" class="btn-primary">Go Now</a> -->
+               <button id="nextImageBtn" class="btn-secondary">
+                 <img src="/assets/img/button/button-circle-next-svgrepo-com.svg" alt="" style="width: 50px; height: 50px;">
+               </button>
+            </div>
+         </div>
+     
+    </section>
+    <div class="container2">
+        <div class="hero1">     
+           <a href="#reservasi" class="btn-primary2">  <h1>RESERVATION NOW</h1></a>
+        </div>
+     </div>
+
+     <div class="container">
+        <div class="hero">    
+           <h1>NATA KUSUMA WITH YOU HERE...</h1>
+           <!-- <p>Enjoy your holidays</p>
+           <a href="/products" class="btn-primary">Go Now</a> -->
+        </div>
+     </div>
+
+     <div class="container2">
+        <div class="hero1">     
+           <a href="reservasi.html" class="btn-primary2">  <h1>YOUR CHOISE IS YOUR BEST VACATION</h1></a>
+        </div>
+     </div>
+ </main>
+
+ <!-- <section id="reservasi" style="padding: 2rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+        <a href="/reservasi/bali.html">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="assets/img/kota/bali/bali1.jpg" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Bali Island</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="/reservasi/jogja.html">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="assets/img/kota/jogja/jogja1.jpg" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Jogja - Jateng</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="/reservasi/bandung.html">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="assets/img/kota/bandung/bandung2.jpg" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Bandung</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="#comingsoon">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="/assets/img/coming_soon/cooltext461182162878167.png" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Coming Soon</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="#comingsoon">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="/assets/img/coming_soon/cooltext461182162878167.png" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Coming Soon</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="#comingsoon">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="/assets/img/coming_soon/cooltext461182162878167.png" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Coming Soon</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+        <a href="#comingsoon">
+            <div class="reservasi1" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <img src="/assets/img/coming_soon/cooltext461182162878167.png" alt="Deskripsi Gambar 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                <div style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: white; width: 100%; text-align: center; padding: 0.5rem 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">Coming Soon</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 1rem; border-radius: 10px; opacity: 0; transition: opacity 0.3s ease;">Pop-Up: Destinasi 1</div>
+            </div>
+        </a>
+    </div>
+    
+ </section> -->
+
+ <section id="reservasi" style="padding: 2rem; overflow-y: scroll; max-height: 80vh;">
+    <div class="reservasi-container" style="white-space: nowrap;">
+        <div class="reservasi-item">
+            <a href="/reservasi/bali.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/bali/bali1.jpg" alt="Deskripsi Gambar 1">
+                    <div>Bali Island</div>
+                    <div class="popup">Pilihan healing terbaik</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/jogja.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/jogja/jogja1.jpg" alt="Deskripsi Gambar 1">
+                    <div>Jogja - Jateng</div>
+                    <div class="popup">Cagar budaya</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/bandung.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/bandung/bandung2.jpg" alt="Deskripsi Gambar 1">
+                    <div>Bandung</div>
+                    <div class="popup">Lingkungan yang asrin</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/banten.html">
+                <div class="reservasi1">
+                    <img src="/assets/img/kota/banten/sawarna.jpg" alt="Deskripsi Gambar 1">
+                    <div>Banten</div>
+                    <div class="popup">Pantai yang indah</div>
+                </div>
+            </a>
+        </div>'
+    <!-- </div>
+    <div class="reservasi-item">
+        <a href="/reservasi/papua.html">
+            <div class="reservasi1">
+                <img src="/assets/img/kota/rajaampat/rajaampat1.jpg" alt="Deskripsi Gambar 1">
+                <div>Pspus</div>
+                <div class="popup">Tempat menakjubkan</div>
+                
+            </div>
+        </a>
+    </div> -->
+        <div class="reservasi-item">
+            <a href="/reservasi/papua.html">
+                <div class="reservasi1">
+                    <img src="/assets/img/kota/rajaampat/rajaampat1.jpg" alt="Deskripsi Gambar 1">
+                    <div>Papua</div>
+                    <div class="popup">Tempat menakjubkan</div>
+                </div>
+            </a>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
+</section>
+
+
+ <!-- <section id="reservasi" style="padding: 2rem;">
+    <div class="reservasi-container" style="overflow: hidden; white-space: nowrap;">
+        <div class="reservasi-item">
+            <a href="/reservasi/bali.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/bali/bali1.jpg" alt="Deskripsi Gambar 1">
+                    <div>Bali Island</div>
+                    <div class="popup">Pilihan healing terbaik</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/jogja.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/jogja/jogja1.jpg" alt="Deskripsi Gambar 1">
+                    <div>Jogja - Jateng</div>
+                    <div class="popup">Cagar budaya</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/bandung.html">
+                <div class="reservasi1">
+                    <img src="assets/img/kota/bandung/bandung2.jpg" alt="Deskripsi Gambar 1">
+                    <div>Bandung</div>
+                    <div class="popup">Lingkungan yang asrin</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="/reservasi/banten.html">
+                <div class="reservasi1">
+                    <img src="/assets/img/kota/banten/sawarna.jpg" alt="Deskripsi Gambar 1">
+                    <div>Banten</div>
+                    <div class="popup">Pantai yang indah</div>
+                </div>
+            </a>
+        </div>
+        <div class="reservasi-item">
+            <a href="#comingsoon">
+                <div class="reservasi1">
+                    <img src="/assets/img/coming_soon/cooltext461182162878167.png" alt="Deskripsi Gambar 1">
+                    <div>Coming Soon</div>
+                    <div class="popup">Pop-Up: Destinasi 1</div>
+                </div>
+            </a>
+        </div>
+       
+    </div>
+</section> -->
+
+
+ <div class="container2">
+    <div class="hero1">     
+       <a href="dokumentasi.html" class="btn-primary2">  <h1>GALLERY</h1></a>
+    </div>
+ </div>
+
+
+ <div class="container">
+    <div class="heroA">    
+       <h1>PARATRITIS</h1>
+       <!-- <p>Enjoy your holidays</p>
+       <a href="/products" class="btn-primary">Go Now</a> -->
+    </div>
+ </div>
+ <div class="container">
+    <div class="heroB">    
+       <h1>KUTAI</h1>
+       <!-- <p>Enjoy your holidays</p>
+       <a href="/products" class="btn-primary">Go Now</a> -->
+    </div>
+ </div>
+ <div class="container">
+    <div class="heroC">    
+       <h1>SAWARNA</h1>
+       <!-- <p>Enjoy your holidays</p>
+       <a href="/products" class="btn-primary">Go Now</a> -->
+    </div>
+ </div>
+
+ <section id="kontak" style="padding: 2rem; background-color: #f0f0f0;">
+    <div class="container">
+        <h2 style="text-align: center;">Hubungi Kami</h2>
+        <p style="text-align: center;">Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
+        <div style="display: flex; justify-content: center;">
+            <form action="mailto:info@natakusumatour.com" method="post" enctype="text/plain" style="max-width: 600px; width: 100%;">
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="nama" name="nama" placeholder="Nama" style="width: calc(50% - 10px); padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <input type="email" id="email" name="email" placeholder="Email" style="width: calc(50% - 10px); padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="pesan" name="pesan" placeholder="Pesan Anda" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" style="padding: 10px 20px; background-color: #596249; color: white; border: none; border-radius: 5px; cursor: pointer;">Kirim Pesan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+ <footer style="background-color: #596249; color: white; text-align: center; padding: 20px;">
+    <p>&copy; 2024 Nata Kusuma Tour. All rights reserved.</p>
+    <div>
+        <a href="privacy-policy.html" style="color: white; text-decoration: none; margin-right: 10px;">Privacy Policy</a>
+        <a href="terms-of-service.html" style="color: white; text-decoration: none;">Terms of Service</a>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('[data-toggle-sidebar]').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+            const sidebarID = toggle.dataset.toggleSidebar;
+            const sidebarElement = sidebarID ? document.getElementById(sidebarID) : undefined;
+            if (sidebarElement) {
+                let sidebarState = sidebarElement.getAttribute('aria-hidden');
+                sidebarElement.setAttribute('aria-hidden', sidebarState == 'true' ? false : true); 
+            }
+        });
+    });
+
+  const hero = document.querySelector('.hero');
+  const prevImageBtn = document.getElementById('prevImageBtn');
+  const nextImageBtn = document.getElementById('nextImageBtn');
+
+  // Define an array of image URLs to cycle through
+  const imageUrls = [
+  '/assets/img/kota/magelang/borobudur2.jpg',
+    '/assets/img/kota/bali/bali1.jpg',
+    '/assets/img/kota/rajaampat/rajaampat1.jpg',
+  ];
+
+  let currentImageIndex = 0;
+
+  // Function to set background image based on current index
+  function setImage(index) {
+    hero.style.backgroundImage = `url('${imageUrls[index]}')`;
+  }
+
+  // Initial image display
+  setImage(currentImageIndex);
+
+  // Previous image button click handler
+  prevImageBtn.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+    setImage(currentImageIndex);
+  });
+
+  // Next image button click handler
+  nextImageBtn.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+    setImage(currentImageIndex);
+  });
+
+//   Rolling Text
+
+
+</script>
+
+</body>
+</html>

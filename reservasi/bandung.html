@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nata - Bandung</title>
+    <style>
+        /* Reset dan style dasar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #596249;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #69747d;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #596249;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: white;
+        }
+
+        p {
+            color: #ccc;
+        }
+
+        /* Formulir dan tabel */
+        form, table {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #69747d;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="email"],
+        form textarea,
+        form select,
+        form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: #596249;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            padding: 10px 20px;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+            color: #596249;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #69747d;
+            color: white;
+            text-align: left;
+        }
+
+        /* Responsif */
+        @media screen and (max-width: 768px) {
+            form input[type="text"],
+            form input[type="date"],
+            form textarea,
+            form select,
+            form button {
+                width: 100%;
+            }
+        }
+
+        .img-setting {
+            overflow-x: auto; /* Aktifkan scroll horizontal jika diperlukan */
+            white-space: nowrap; /* Pastikan gambar tetap dalam satu baris */
+            padding-bottom: 10px; /* Untuk memberi ruang di bawah gambar */
+            cursor: grab; /* Ubah kursor mouse menjadi 'grab' saat mengarahkan ke area scrollable */
+            cursor: -webkit-grab; /* Untuk dukungan browser Safari */
+        }
+
+        .img-setting img {
+            height: 200px; /* Tetapkan tinggi gambar */
+            width: auto; /* Biarkan lebar menyesuaikan */
+            display: inline-block; /* Tampilkan gambar secara inline */
+            margin-right: 10px; /* Jarak antar gambar */
+        }
+        @media screen and (max-width: 768px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    table th, table td {
+        white-space: nowrap;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody {
+        display: block;
+    }
+
+    table tbody tr {
+        display: block;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    table tbody td {
+        display: block;
+        text-align: left;
+    }
+
+    table tbody td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Wisata Kota Kembang - Bandung</h1>
+    <p>Bandung, sering dijuluki sebagai Kota Kembang, adalah ibu kota Provinsi Jawa Barat di Indonesia. Kota ini dikenal karena udara sejuknya, pemandangan pegunungan yang memukau, dan warisan budayanya yang kaya. Selain menjadi pusat mode dan kuliner, Bandung menawarkan berbagai tempat wisata menarik yang memadukan keindahan alam dan kekayaan budaya.
+    
+    Kawah Putih di Ciwidey adalah salah satu destinasi alam terkenal yang menampilkan danau vulkanik dengan air berwarna putih kehijauan yang unik. Di kawasan Lembang, Gunung Tangkuban Perahu menarik banyak pengunjung dengan kawahnya yang megah dan pemandangan alam yang indah. Di daerah yang sama, Farmhouse Lembang menawarkan suasana pedesaan Eropa dengan rumah hobbit dan kostum tradisional Belanda.
+    
+    Bandung juga memiliki banyak tempat wisata keluarga seperti Trans Studio Bandung, salah satu taman hiburan indoor terbesar di Asia, dan Dago Dreampark yang menawarkan berbagai wahana dan atraksi seru. Floating Market Lembang menawarkan pengalaman unik berbelanja makanan dan kerajinan dari perahu yang mengapung di danau buatan.
+    
+    Kota ini juga merupakan pusat kreativitas dan seni dengan banyak galeri seni, kafe kreatif, dan komunitas seniman. Braga Street adalah salah satu kawasan bersejarah yang terkenal dengan bangunan bergaya kolonial, galeri seni, dan kafe yang nyaman. Saung Angklung Udjo adalah tempat yang harus dikunjungi untuk menikmati pertunjukan musik tradisional Angklung dan belajar tentang budaya Sunda.
+    
+    Bandung tidak hanya memukau dengan pesona alam dan budayanya, tetapi juga dengan keramahan penduduknya dan beragam aktivitas yang dapat dinikmati oleh wisatawan dari segala usia. Sebagai pusat pendidikan dan inovasi, Bandung terus berkembang dan menarik perhatian sebagai destinasi wisata utama di Indonesia.</p>
+    <br>
+    
+    <div class="img-setting">
+        <img src="/assets/img/kota/bandung/bandung.jpg" alt="">
+        <img src="/assets/img/kota/bandung/bandung2.jpg" alt="">
+        <img src="/assets/img/kota/bandung/tangkubanperahu.jpg" alt="">
+    </div>
+</header>
+<main>
+    <section id="attractions">
+        <h2>Tempat Wisata di Bandung</h2>
+        <form id="attraction-checkboxes">
+            <label><input type="checkbox" name="attraction" value="kawahputih"> Kawah Putih</label><br>
+            <p>Kawah Putih adalah danau kawah vulkanik dengan air berwarna putih kebiruan. Terletak di daerah Ciwidey, sekitar 50 km dari pusat kota Bandung. <a href="https://en.wikipedia.org/wiki/Kawah_Putih" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-kawahputih" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="tangkubanperahu"> Tangkuban Perahu</label><br>
+            <p>Gunung Tangkuban Perahu adalah gunung berapi yang masih aktif, terletak sekitar 30 km di utara Bandung. <a href="https://en.wikipedia.org/wiki/Tangkuban_Perahu" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-tangkubanperahu" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="farmhouselembang"> Farmhouse Lembang</label><br>
+            <p>Farmhouse Lembang adalah tempat wisata keluarga dengan konsep ala Eropa. <a href="https://www.farmhouselembang.com" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-farmhouselembang" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="floatingmarketlembang"> Floating Market Lembang</label><br>
+            <p>Floating Market Lembang adalah pasar terapung yang menawarkan berbagai makanan dan minuman khas Bandung. <a href="https://www.floatingmarketlembang.id" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-floatingmarketlembang" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="dusunbambu"> Dusun Bambu</label><br>
+            <p>Dusun Bambu adalah tempat wisata alam yang menawarkan berbagai fasilitas seperti restoran dan area bermain anak. <a href="https://www.dusunbambu.com" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-dusunbambu" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="dagodreampark"> Dago Dreampark</label><br>
+            <p>Dago Dreampark adalah taman rekreasi yang menawarkan berbagai wahana permainan dan aktivitas seru. <a href="https://www.dagodreampark.co.id" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-dagodreampark" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="transstudiobandung"> Trans Studio Bandung</label><br>
+            <p>Trans Studio Bandung adalah salah satu taman hiburan indoor terbesar di Indonesia. <a href="https://www.transstudiobandung.com" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-transstudiobandung" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="saungangklungudjo"> Saung Angklung Udjo</label><br>
+            <p>Saung Angklung Udjo adalah pusat budaya yang mempromosikan seni angklung, alat musik tradisional Jawa Barat. <a href="https://www.angklung-udjo.co.id" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-saungangklungudjo" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="tebingkeraton"> Tebing Keraton</label><br>
+            <p>Tebing Keraton adalah tempat wisata alam dengan pemandangan yang menakjubkan, terutama saat matahari terbit atau terbenam. <a href="https://en.wikipedia.org/wiki/Tebing_Keraton" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-tebingkeraton" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="bragastreet"> Braga Street</label><br>
+            <p>Jalan Braga adalah salah satu jalan ikonik di Bandung dengan suasana kolonial Belanda. <a href="https://en.wikipedia.org/wiki/Braga_Street" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-bragastreet" class="attraction-description"></div><br>
+        </form>
+    </section>
+    
+    <section id="reservations">
+        <h2>Reservasi Hotel di Bali</h2>
+        <form id="hotel-reservation-form">
+            <input type="hidden" id="edit-mode" value="false">
+            <input type="hidden" id="edit-index" value="">
+
+            <label for="hotel">Nama Hotel:</label>
+            <select id="hotel" name="hotel" required>
+                <option value="">Pilih Hotel</option>
+                <optgroup label="Kawah Putih">
+                    <option value="Sari Ater Hotel & Resort">Sari Ater Hotel & Resort</option>
+                    <option value="Patuha Resort Kawah Putih">Patuha Resort Kawah Putih</option>
+                </optgroup>
+                <optgroup label="Tangkuban Perahu">
+                    <option value="Lembang Asri Resort">Lembang Asri Resort</option>
+                    <option value="Gracia Spa Resort Hotel">Gracia Spa Resort Hotel</option>
+                </optgroup>
+                <optgroup label="Farmhouse Lembang">
+                    <option value="Puteri Gunung Hotel">Puteri Gunung Hotel</option>
+                    <option value="Villa Air Natural Resort">Villa Air Natural Resort</option>
+                </optgroup>
+                <optgroup label="Floating Market Lembang">
+                    <option value="Sandalwood Boutique Hotel">Sandalwood Boutique Hotel</option>
+                    <option value="Imah Seniman Resort">Imah Seniman Resort</option>
+                </optgroup>
+                <optgroup label="Dusun Bambu">
+                    <option value="Dusun Bambu Family Leisure Park">Dusun Bambu Family Leisure Park</option>
+                    <option value="Lembang Asri Resort">Lembang Asri Resort</option>
+                </optgroup>
+                <optgroup label="Dago Dreampark">
+                    <option value="The Jayakarta Suites Bandung">The Jayakarta Suites Bandung</option>
+                    <option value="Dago Highland Resort">Dago Highland Resort</option>
+                </optgroup>
+                <optgroup label="Trans Studio Bandung">
+                    <option value="The Trans Luxury Hotel">The Trans Luxury Hotel</option>
+                    <option value="Ibis Bandung Trans Studio">Ibis Bandung Trans Studio</option>
+                </optgroup>
+                <optgroup label="Saung Angklung Udjo">
+                    <option value="Serela Cihampelas Hotel">Serela Cihampelas Hotel</option>
+                    <option value="Grand Tebu Hotel">Grand Tebu Hotel</option>
+                </optgroup>
+                <optgroup label="Tebing Keraton">
+                    <option value="Maribaya Glamping Tent">Maribaya Glamping Tent</option>
+                    <option value="The Valley Resort Hotel">The Valley Resort Hotel</option>
+                </optgroup>
+                <optgroup label="Braga Street">
+                    <option value="Aston Braga Hotel & Residence">Aston Braga Hotel & Residence</option>
+                    <option value="Gino Feruci Braga Hotel">Gino Feruci Braga Hotel</option>
+                </optgroup>
+            </select><br>
+            
+            
+            <label for="check-in">Check-in:</label>
+            <input type="date" id="check-in" name="check-in" required><br>
+
+            <label for="check-out">Check-out:</label>
+            <input type="date" id="check-out" name="check-out" required><br>
+
+            <label for="name">Nama Pemesan:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <button type="submit">Simpan</button>
+        </form>
+
+        <h3>Daftar Reservasi</h3>
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Nama Pemesan</th>
+                    <th>Email</th>
+                    <th>Tempat Wisata</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="reservation-table-body"></tbody>
+        </table> -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Nama Pemesan</th>
+                    <th>Email</th>
+                    <th>Tempat Wisata</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="reservation-table-body">
+                <!-- Data tabel akan diisi dinamis menggunakan JavaScript -->
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script>
+    let reservations = [];
+
+    function isLocalStorageSupported() {
+        try {
+            const testKey = '__testKey__';
+            localStorage.setItem(testKey, testKey);
+            localStorage.removeItem(testKey);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function saveToLocalStorage() {
+        if (isLocalStorageSupported()) {
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+        }
+    }
+
+    function loadFromLocalStorage() {
+        if (isLocalStorageSupported()) {
+            const storedReservations = localStorage.getItem('reservations');
+            if (storedReservations) {
+                reservations = JSON.parse(storedReservations);
+                displayReservations();
+            }
+        }
+    }
+
+    document.getElementById('hotel-reservation-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const hotel = document.getElementById('hotel').value;
+        const checkIn = document.getElementById('check-in').value;
+        const checkOut = document.getElementById('check-out').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const attractions = Array.from(document.querySelectorAll('input[name="attraction"]:checked')).map(input => input.value);
+
+        if (hotel && checkIn && checkOut && name && email && attractions.length > 0) {
+            const reservation = {
+                hotel: hotel,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                name: name,
+                email: email,
+                attractions: attractions
+            };
+
+            const editMode = document.getElementById('edit-mode').value;
+            if (editMode === 'true') {
+                const index = parseInt(document.getElementById('edit-index').value);
+                reservations[index] = reservation;
+                document.getElementById('edit-mode').value = 'false';
+            } else {
+                reservations.push(reservation);
+            }
+
+            saveToLocalStorage();
+            displayReservations();
+            document.getElementById('hotel-reservation-form').reset();
+        } else {
+            alert('Silakan lengkapi semua bidang formulir sebelum mengirimkan reservasi.');
+        }
+    });
+
+    function displayReservations() {
+        const tableBody = document.getElementById('reservation-table-body');
+        tableBody.innerHTML = '';
+
+        reservations.forEach((reservation, index) => {
+            const attractions = reservation.attractions.join(', ');
+
+            const row = `<tr>
+                            <td>${reservation.hotel}</td>
+                            <td>${reservation.checkIn}</td>
+                            <td>${reservation.checkOut}</td>
+                            <td>${reservation.name}</td>
+                            <td>${reservation.email}</td>
+                            <td>${attractions}</td>
+                            <td>
+                                <button onclick="prepareEdit(${index})">Edit</button>
+                                <button onclick="deleteReservation(${index})">Hapus</button>
+                            </td>
+                        </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    function deleteReservation(index) {
+        reservations.splice(index, 1);
+        saveToLocalStorage();
+        displayReservations();
+    }
+
+    function prepareEdit(index) {
+        const reservation = reservations[index];
+
+        document.getElementById('hotel').value = reservation.hotel;
+        document.getElementById('check-in').value = reservation.checkIn;
+        document.getElementById('check-out').value = reservation.checkOut;
+        document.getElementById('name').value = reservation.name;
+        document.getElementById('email').value = reservation.email;
+
+        reservation.attractions.forEach(attraction => {
+            document.querySelector(`input[name="attraction"][value="${attraction}"]`).checked = true;
+        });
+
+        document.getElementById('edit-mode').value = 'true';
+        document.getElementById('edit-index').value = index.toString();
+
+        const submitButton = document.querySelector('button[type="submit"]');
+        submitButton.textContent = 'Simpan';
+    }
+
+    loadFromLocalStorage();
+</script>
+
+</body>
+</html>

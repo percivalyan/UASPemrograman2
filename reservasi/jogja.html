@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nata - Jawa Tengah - Jogja/Yogyakarta</title>
+    <style>
+        /* Reset dan style dasar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #596249;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #69747d;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #596249;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h1, h2 {
+            color: white;
+        }
+
+        p {
+            color: #ccc;
+        }
+
+        /* Formulir dan tabel */
+        form, table {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #69747d;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="email"],
+        form textarea,
+        form select,
+        form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: #596249;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: auto;
+            padding: 10px 20px;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+            color: #596249;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        table th {
+            background-color: #69747d;
+            color: white;
+            text-align: left;
+        }
+
+        /* Responsif */
+        @media screen and (max-width: 768px) {
+            form input[type="text"],
+            form input[type="date"],
+            form textarea,
+            form select,
+            form button {
+                width: 100%;
+            }
+        }
+
+        .img-setting {
+            overflow-x: auto; /* Aktifkan scroll horizontal jika diperlukan */
+            white-space: nowrap; /* Pastikan gambar tetap dalam satu baris */
+            padding-bottom: 10px; /* Untuk memberi ruang di bawah gambar */
+            cursor: grab; /* Ubah kursor mouse menjadi 'grab' saat mengarahkan ke area scrollable */
+            cursor: -webkit-grab; /* Untuk dukungan browser Safari */
+        }
+
+        .img-setting img {
+            height: 200px; /* Tetapkan tinggi gambar */
+            width: auto; /* Biarkan lebar menyesuaikan */
+            display: inline-block; /* Tampilkan gambar secara inline */
+            margin-right: 10px; /* Jarak antar gambar */
+        }
+
+        @media screen and (max-width: 768px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    table th, table td {
+        white-space: nowrap;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody {
+        display: block;
+    }
+
+    table tbody tr {
+        display: block;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    table tbody td {
+        display: block;
+        text-align: left;
+    }
+
+    table tbody td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wisata Jogja - Jawa Tengah</h1>
+        <p>Jogja/Yogyakarta, sebuah kota budaya yang kaya di Indonesia, dikenal dengan seni dan budaya tradisionalnya yang mendalam, serta pesona alam yang memukau. Budaya Jogja/Yogyakarta mencerminkan keindahan etniknya dengan berbagai tari tradisional, upacara adat, dan kekayaan seni lainnya. <a href="https://id.wikipedia.org/wiki/Yogyakarta" target="_blank">Info lebih lanjut</a></p>
+        <br>
+        <div class="img-setting">
+            <img src="/assets/img/kota/jogja/jogja1.jpg" alt="">
+            <img src="/assets/img/kota/jogja/jogja2.jpg" alt="">
+            <img src="/assets/img/kota/jogja/parangtritis1.jpg" alt="">
+            <img src="/assets/img/kota/jogja/prambanan1.jpg" alt="">
+            <img src="/assets/img/kota/jogja/prambanan2.jpg" alt="">
+            <img src="/assets/img/kota/magelang/borobudur.jpg" alt="">
+            <img src="/assets/img/kota/magelang/borobudur2.jpg" alt="">
+            <img src="/assets/img/kota/magelang/borobudur3.jpg" alt="">
+        </div>
+    </header>
+<main>
+    <section id="attractions">
+        <h2>Tempat Wisata di Jogja/Yogyakarta</h2>
+        <form id="attraction-checkboxes">
+            <label><input type="checkbox" name="attraction" value="malioboro"> Jalan Malioboro</label><br>
+            <p>Jalan Malioboro adalah pusat keramaian dan belanja di Jogja, terkenal dengan keramahan warganya dan nuansa tradisionalnya. <a href="https://id.wikipedia.org/wiki/Jalan_Malioboro" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-malioboro" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="candiprambanan"> Candi Prambanan</label><br>
+            <p>Candi Prambanan adalah kompleks candi Hindu terbesar di Indonesia, dengan arsitektur yang megah dan nilai sejarah yang tinggi. <a href="https://id.wikipedia.org/wiki/Candi_Prambanan" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-candiprambanan" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="taman sari"> Taman Sari</label><br>
+            <p>Taman Sari adalah kompleks istana dan taman air bekas kerajaan Yogyakarta, menawarkan pesona sejarah dan arsitektur yang unik. <a href="https://id.wikipedia.org/wiki/Taman_Sari" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-tamansari" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="gunung merapi"> Gunung Merapi</label><br>
+            <p>Gunung Merapi adalah gunung berapi yang aktif di Jogja, populer untuk pendakian dan pemandangannya yang spektakuler. <a href="https://id.wikipedia.org/wiki/Gunung_Merapi" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-gunungmerapi" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="pantai parangtritis"> Pantai Parangtritis</label><br>
+            <p>Pantai Parangtritis adalah pantai selatan Jogja dengan pemandangan ombak yang indah dan legenda mistisnya. <a href="https://id.wikipedia.org/wiki/Pantai_Parangtritis" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-parangtritis" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="benteng vredeburg"> Benteng Vredeburg</label><br>
+            <p>Benteng Vredeburg adalah bekas benteng kolonial Belanda yang kini menjadi museum sejarah dan budaya Jogja. <a href="https://id.wikipedia.org/wiki/Fort_Vredeburg_Museum" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-vredeburg" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="candi borobudur"> Candi Borobudur</label><br>
+            <p>Candi Borobudur adalah candi Buddha terbesar di dunia, dengan relief-relief yang menakjubkan dan nilai sejarah yang sangat tinggi. <a href="https://id.wikipedia.org/wiki/Candi_Borobudur" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-borobudur" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="goa pindul"> Goa Pindul</label><br>
+            <p>Goa Pindul adalah gua di Jogja yang populer untuk kegiatan wisata petualangan seperti tubing. <a href="https://id.wikipedia.org/wiki/Goa_Pindul" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-goapindul" class="attraction-description"></div><br>
+        
+            <label><input type="checkbox" name="attraction" value="kraton yogyakarta"> Keraton Yogyakarta</label><br>
+            <p>Keraton Yogyakarta adalah istana resmi Sultan Yogyakarta, dengan arsitektur dan tradisi budaya yang kaya. <a href="https://id.wikipedia.org/wiki/Kraton_Yogyakarta" target="_blank">Info lebih lanjut</a></p>
+            <div id="desc-kraton" class="attraction-description"></div><br>
+        </form>
+    </section>
+    <section id="reservations">
+        <h2>Reservasi Hotel di Bali</h2>
+        <form id="hotel-reservation-form">
+            <input type="hidden" id="edit-mode" value="false">
+            <input type="hidden" id="edit-index" value="">
+
+            <label for="hotel">Nama Hotel:</label>
+            <select id="hotel" name="hotel" required>
+                <option value="">Pilih Hotel</option>
+                <optgroup label="Jalan Malioboro">
+                    <option value="Hotel Santika Premiere Jogja">Hotel Santika Premiere Jogja - Jl. Jendral Sudirman No. 19</option>
+                    <option value="Grand Aston Yogyakarta">Grand Aston Yogyakarta - Jl. Urip Sumoharjo No. 37</option>
+                </optgroup>
+                <optgroup label="Candi Prambanan">
+                    <option value="Sheraton Mustika Yogyakarta Resort & Spa">Sheraton Mustika Yogyakarta Resort & Spa</option>
+                    <option value="Plataran Candi Prambanan">Plataran Candi Prambanan</option>
+                </optgroup>
+                <optgroup label="Taman Sari">
+                    <option value="Hotel Tentrem Yogyakarta">Hotel Tentrem Yogyakarta - Jl. AM Sangaji No. 72</option>
+                    <option value="The Phoenix Hotel Yogyakarta">The Phoenix Hotel Yogyakarta - Jl. Jenderal Sudirman No. 9</option>
+                </optgroup>
+                <optgroup label="Gunung Merapi">
+                    <option value="Java Heritage Hotel Yogyakarta">Java Heritage Hotel Yogyakarta - Jl. Boyong KM 1 No. 25</option>
+                    <option value="Platinum Adisucipto Hotel & Conference Center">Platinum Adisucipto Hotel & Conference Center</option>
+                </optgroup>
+                <optgroup label="Pantai Parangtritis">
+                    <option value="Queen of The South Resort">Queen of The South Resort - Jl. Parangtritis KM 8.5</option>
+                    <option value="The Royal Ambarrukmo Yogyakarta">The Royal Ambarrukmo Yogyakarta - Jl. Laksda Adisucipto No. 81</option>
+                </optgroup>
+                <optgroup label="Benteng Vredeburg">
+                    <option value="Puri Artha Hotel Yogyakarta">Puri Artha Hotel Yogyakarta - Jl. Cendrawasih No. 36</option>
+                    <option value="Hotel Neo Malioboro by Aston">Hotel Neo Malioboro by Aston - Jl. Pasar Kembang No. 21</option>
+                </optgroup>
+                <optgroup label="Candi Borobudur">
+                    <option value="Manohara Resort Borobudur">Manohara Resort Borobudur</option>
+                    <option value="Plataran Heritage Borobudur Hotel & Convention Center">Plataran Heritage Borobudur Hotel & Convention Center</option>
+                </optgroup>
+                <optgroup label="Goa Pindul">
+                    <option value="Puri Artha Hotel Yogyakarta">Puri Artha Hotel Yogyakarta - Jl. Cendrawasih No. 36</option>
+                    <option value="The Phoenix Hotel Yogyakarta">The Phoenix Hotel Yogyakarta - Jl. Jenderal Sudirman No. 9</option>
+                </optgroup>
+                <optgroup label="Keraton Yogyakarta">
+                    <option value="Hotel Tentrem Yogyakarta">Hotel Tentrem Yogyakarta - Jl. AM Sangaji No. 72</option>
+                    <option value="The Phoenix Hotel Yogyakarta">The Phoenix Hotel Yogyakarta - Jl. Jenderal Sudirman No. 9</option>
+                </optgroup>
+            </select><br>
+
+            
+            <label for="check-in">Check-in:</label>
+            <input type="date" id="check-in" name="check-in" required><br>
+
+            <label for="check-out">Check-out:</label>
+            <input type="date" id="check-out" name="check-out" required><br>
+
+            <label for="name">Nama Pemesan:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <button type="submit">Simpan</button>
+        </form>
+
+        <h3>Daftar Reservasi</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hotel</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Nama Pemesan</th>
+                    <th>Email</th>
+                    <th>Tempat Wisata</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="reservation-table-body"></tbody>
+        </table>
+    </section>
+</main>
+
+<script>
+    let reservations = [];
+
+    function isLocalStorageSupported() {
+        try {
+            const testKey = '__testKey__';
+            localStorage.setItem(testKey, testKey);
+            localStorage.removeItem(testKey);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function saveToLocalStorage() {
+        if (isLocalStorageSupported()) {
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+        }
+    }
+
+    function loadFromLocalStorage() {
+        if (isLocalStorageSupported()) {
+            const storedReservations = localStorage.getItem('reservations');
+            if (storedReservations) {
+                reservations = JSON.parse(storedReservations);
+                displayReservations();
+            }
+        }
+    }
+
+    document.getElementById('hotel-reservation-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const hotel = document.getElementById('hotel').value;
+        const checkIn = document.getElementById('check-in').value;
+        const checkOut = document.getElementById('check-out').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const attractions = Array.from(document.querySelectorAll('input[name="attraction"]:checked')).map(input => input.value);
+
+        if (hotel && checkIn && checkOut && name && email && attractions.length > 0) {
+            const reservation = {
+                hotel: hotel,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                name: name,
+                email: email,
+                attractions: attractions
+            };
+
+            const editMode = document.getElementById('edit-mode').value;
+            if (editMode === 'true') {
+                const index = parseInt(document.getElementById('edit-index').value);
+                reservations[index] = reservation;
+                document.getElementById('edit-mode').value = 'false';
+            } else {
+                reservations.push(reservation);
+            }
+
+            saveToLocalStorage();
+            displayReservations();
+            document.getElementById('hotel-reservation-form').reset();
+        } else {
+            alert('Silakan lengkapi semua bidang formulir sebelum mengirimkan reservasi.');
+        }
+    });
+
+    function displayReservations() {
+        const tableBody = document.getElementById('reservation-table-body');
+        tableBody.innerHTML = '';
+
+        reservations.forEach((reservation, index) => {
+            const attractions = reservation.attractions.join(', ');
+
+            const row = `<tr>
+                            <td>${reservation.hotel}</td>
+                            <td>${reservation.checkIn}</td>
+                            <td>${reservation.checkOut}</td>
+                            <td>${reservation.name}</td>
+                            <td>${reservation.email}</td>
+                            <td>${attractions}</td>
+                            <td>
+                                <button onclick="prepareEdit(${index})">Edit</button>
+                                <button onclick="deleteReservation(${index})">Hapus</button>
+                            </td>
+                        </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    function deleteReservation(index) {
+        reservations.splice(index, 1);
+        saveToLocalStorage();
+        displayReservations();
+    }
+
+    function prepareEdit(index) {
+        const reservation = reservations[index];
+
+        document.getElementById('hotel').value = reservation.hotel;
+        document.getElementById('check-in').value = reservation.checkIn;
+        document.getElementById('check-out').value = reservation.checkOut;
+        document.getElementById('name').value = reservation.name;
+        document.getElementById('email').value = reservation.email;
+
+        reservation.attractions.forEach(attraction => {
+            document.querySelector(`input[name="attraction"][value="${attraction}"]`).checked = true;
+        });
+
+        document.getElementById('edit-mode').value = 'true';
+        document.getElementById('edit-index').value = index.toString();
+
+        const submitButton = document.querySelector('button[type="submit"]');
+        submitButton.textContent = 'Simpan';
+    }
+
+    loadFromLocalStorage();
+</script>
+
+</body>
+</html>
